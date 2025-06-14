@@ -20,6 +20,8 @@ def fetch_current_weather_condition(city_name: str) -> Optional[str]:
     Returns:
         Optional[str]: Weather condition (e.g., 'Clear', 'Rain'), or None if failed.
     """
+    city_name = city_name.strip()
+
     params = {
         "q": city_name,
         "appid": OPENWEATHER_API_KEY,

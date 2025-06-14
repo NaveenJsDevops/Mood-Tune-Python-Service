@@ -1,9 +1,11 @@
 import os
 import requests
-from dotenv import load_dotenv
 from typing import Optional, Dict
 
-load_dotenv()
+# Load environment variables from .env only in local dev
+if os.getenv("RENDER") != "true":
+    from dotenv import load_dotenv
+    load_dotenv()
 
 LASTFM_API_KEY = os.getenv("LASTFM_API_KEY")
 LASTFM_BASE_URL = "http://ws.audioscrobbler.com/2.0/"

@@ -1,9 +1,11 @@
 import os
 import requests
-from dotenv import load_dotenv
 from typing import Optional
 
-load_dotenv()
+# Only load .env in local development
+if os.getenv("RENDER") != "true":
+    from dotenv import load_dotenv
+    load_dotenv()
 
 OPENWEATHER_API_KEY = os.getenv("OPENWEATHER_API_KEY")
 OPENWEATHER_BASE_URL = "http://api.openweathermap.org/data/2.5/weather"
